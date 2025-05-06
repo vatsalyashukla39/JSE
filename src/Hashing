@@ -1,0 +1,41 @@
+1)What is hashing?
+1)Hashing is a search technique.
+
+2)Why we need hashing when we already have linear and binary search?
+2)We need hashing to reduce the search time as it is optimised as compared to linear and binary search.
+
+3)How much optimized is hashing?
+3)Hashing guarantees to provide time complexity as low as o(1).
+
+Suppose you have to store the records of 100 students for the following class:
+One way to do this is to create an array of 100 students and store the records by running a loop 100 times accepting the
+values from the user and storing them in this array.
+Next challenge is to accept a roll number from the user and  search and display the record
+
+There are two solutions to the problem:
+1)Run a loop, compare every records roll number with the given value and match and display when found.
+2)Use roll number as array index. This means that record of the student with roll number 25 will be placed at s[25]
+
+But there is a problem in 2nd solution and the problem is that if we have 100 students but there roll number vary from 0-99999
+then in case of solution two we will have take array of 1lakh in size out of which only 100 cells will be used.This is wastage of memory.
+
+This is where hashing comes into picture.
+
+Hashing is the process of converting data like string or number into a fixed range value called hash value using
+a mathematical function called hash function.
+For eg: in our case we can still take array of size 100 and perform mod 100 to reduce it to a two digit value. This mod 100
+is called hash function and this technique is called hashing.
+
+Collision is a situation which occurs whenever we have two keys( roll no.) which result into
+same hash address. In other words the new record is mapped to a location  in the array which is already occupied.
+
+Chaining :
+The most popular solution to collision is a technique called chaining which many popular languages like java use.
+
+How chaining works?
+1)Instead of taking array of values we take array of references which means that at every index in this array we have a linked
+list so that multiple values can be stored at the same index.
+2)Now we compute the hash value of the key .
+3)If the slot is empty then we store the record as 1st node .
+4)If the slot is occupied we append the new record at the end of the previous record.
+5)During searching(look-up) we simply calculate the hash value and search through the linked list instead of searching through the array.

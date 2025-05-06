@@ -1,0 +1,13 @@
+Till now all the DS that we have covered were linear DS
+
+
+for ex:
+the file system in our comp requires multiple drives having multiple folders nd every folders hv multiple files
+similarly friend list of a social media profile like facebook requires to rep 1 user having multiple nd each of those frnds further hv multiple frnds
+to rep such type of info we use non linear DS
+
+Types of non linear DS:
+We hv 3 types of non linear DS called as:
+ 1)tree
+ 2)Graph
+ 3)Heap

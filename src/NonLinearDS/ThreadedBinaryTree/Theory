@@ -1,0 +1,34 @@
+When we create a binary tree, we can observe that not every(left and right) of each node is always utilized.
+Some nodes are leaf nodes so both left and right pointers in them store null while some nodes have only one child so the other pointer stores null.
+Now even if the pointer or reference holds null still it consumes required number of bytes.
+
+TBT'S aim at removing these null from nodes and store some meaningful address which can help us in tree traversal.
+So the benefit of TBT is that we do not need any stack to traverse them.
+#Types of TBT'S:
+TBT's are based upon traversal order and each traversal order itself has three TBT'S .But the most popular and common are TBT'S based on inorder traversal.
+And they are:
+1)One Way Inorder TBT
+2)Two Way Inorder TBT
+3)Two Way Inorder TBT with a header node
+
+1)One Way Inorder TBT:
+In a one way inorder tbt we store the address of inorder successor in the right pointer of a node if the right pointer is null.
+2)Two Way Inorder TBT:
+In a two way inorder tbt along with right pointer we use the left pointer also. In this, if the left pointer of a node is null then we store the address of it's inorder predecessor
+3)Two Way Inorder TBT with a header node:
+We can observe that in even in a two inorder tbt we still have null remaining. These are nulls stored in the left pointer of 1st node and right pointer of last node.
+ This is because we do not have any predecessor of 1st node nor we any successor of last node. But since a tbt aims at removing all null values so to remove these two nulls we use the concept of header node.
+ Header node: A header node is a special node whose structure is same as normal node of the tree.But the header node stores special information as follows:
+ a)The left pointer of a header node points to the root node
+ b)The right pointer of the header node points to the header node itself
+ c)the data part of the header node stores some general information about the tree like value of the highest node or number of nodes or anything relevent to us
+ d)The left pointer of the 1st node and right pointer of the last node both are made to point to the header node.
+ e)The root pointer which used to point to the root node now points to the header node
+   In this way we are able to remove all nulls from the tree
+
+#Algorithm for inorder traversal of one way inorder threaded binary tree
+1)Start with the left most cjild of the current node
+2)Print the data
+3)Check the Thread value
+  a)if the thread valie is 1, it means that node is pointing to ist's successor. So move to the right i.e. the successor and goto step 2
+  b)if the thread value is 0, it means that node is pointing to it's child . So move to the child node and goto step 2

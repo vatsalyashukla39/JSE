@@ -1,0 +1,33 @@
+#RECURSION:
+The verbal meaning of the word recursion is defining something in terms of itself. In simple words it means that if to solve
+a particular problem we use smaller problems of similar nature, solve these smaller problems and then use their result
+as base to solve bigger problem then we say we are using recursion.
+For eg: suppose we want to calculate factorial of a number let's say 5! then we can solve it using recursion as follows
+
+#How recursion is used in programming?
+In programming the recursion is used with functions and if a function or method generates a call to itself within it's own body
+then we say the function has become recursive function or recursive method.
+
+#Prequisites for recursion:
+There are three conditions or points we must remember about recursion:
+1)Recursion can only be applied if the problem we are solving requires repetition. In other words we can say that wherever looping is needed there we dc
+2)A recursive function or method must compulsorily call itself.
+3)Every recursive method should hv a condition based on which the method will stop it's recursive call.
+  This condition is normally called as base condition or base case and is generally designed using if.
+
+Complexities of Algorithms:
+It is well know fact that a single programming problem can be solved using multiple different approaches. Now to select which approach is better
+we hv to analyze the code n measure it's complexity
+
+This complexity is measured in two ways :
+1)Space Complexity:
+The word space complexity means how much memory the algo will use while running. It includes
+1)Input space: space taken by input variables
+2)Auxiliary space: space taken by extra array or any other data structure
+3)Function Call Stack space : the space used by function during recursion
+2)Time Complexity:
+The factor of time is more imp than space but this is not the real running time of the algo because it is affected by many external factors
+which are beyond the control of programmer like language used, hardware used ,optimization tricks used by compiler etc
+So when we calculate time complexity we calculate number of instruction with respect to number of data items
+
+

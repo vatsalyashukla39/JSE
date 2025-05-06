@@ -1,0 +1,37 @@
+class Solution {
+    public static Node addPolynomial(Node head1, Node head2) {
+        if(head1==null)return head2;
+        if(head2==null)return head1;
+        Node temp1=head1;
+        Node temp2=head2;
+        Node head=new Node(0,0);
+        Node temp=head;
+        while(temp1!=null&&temp2!=null){
+            Node new1=new Node(0,0);
+            temp.next=new1;
+            temp=new1;
+            if(temp1.pow>temp2.pow){
+                temp.coeff=temp2.coeff;
+                temp.pow=temp2.pow;
+                temp2=temp2.next;
+            }
+            else if(temp2.pow>temp1.pow){
+                temp.coeff=temp1.coeff;
+                temp.pow=temp1.pow;
+                temp1=temp1.next;
+            }
+            else{
+                temp.pow=temp1.pow;
+                temp.coeff=temp1.coeff+temp2.coeff;
+                temp1=temp1.next;
+                temp2=temp2.next;
+            }
+        }
+        if(temp1!=null){
+            temp.next=temp1;
+        }
+        else if(temp2!=null){
+            temp.next=temp2;
+        }return head.next;
+    }
+}

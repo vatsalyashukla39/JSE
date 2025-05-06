@@ -1,0 +1,153 @@
+1)Tree:
+ a)A tree is a non linear DS
+ b) It is used in those programming situations where we want to rep the relationship b/w elements
+    in  a hierarchical manner of parent child manner.
+ c)At every level in a tree we hv nodes and these nodes further can hv other child nodes.
+ d)At the top level we hv a single node called root node.
+
+
+
+ #TERMINOLOGIES USED IN A TREE
+a) Binary Tree: A binary tree is a sp type of tree where every node can hv at most 2 children.
+b) Root Node: The node which sits at the top level in a tree, has no parent node but all other nodes of the tree
+              are either it's direct child or indirect child, is called as root node.
+c)Leaf Node: Any node in a tree which has no other child node that is it has empty left nd right child is
+             called as leaf node.
+d)Non-Leaf node: If a node has at least 1 child in the tree then it is called non-leaf node.
+e)Level Of a Node: Level of a node is defined as length of the path from root node to that particular node and we
+                    assume root node to be at level 0.
+f)Ancestors: The nodes which appear before a particular node but on the same path are called as it's ancestors.
+g)Descendents: The nodes which appear after a particular node but on the same path are called as it's descendents.
+h)Height or Depth of the tree: It is defined as the level of the last leaf node plus 1.
+i)Siblings: Nodes which are the same parent are called as siblings.
+j)Nodes of the same Generation: Nodes which are the same level but hv diff parent nodes are called as
+                                nodes of the same generation.
+
+
+
+#VARIETIES OF BINARY TREE:
+1)Full Binary Tree: It is a sp type of binary tree in which every node either has 0 or 2 children.
+2)Complete Binary tree : It is a sp binary tree in which all the levels except the last level must be
+                          completely full nd at the last level the nodes should appear from left to
+                          right.
+3)Perfect Binary Tree: It is a sp binary tree in which all the levels must be full nd all the
+                       leaf nodes must be at the same level.
+https://media.geeksforgeeks.org/wp-content/uploads/20221125111700/full.png
+https://media.geeksforgeeks.org/wp-content/uploads/20221130172411/completedrawio.png
+https://media.geeksforgeeks.org/wp-content/uploads/20221124094547/perfect.png
+
+
+
+#REPRESENTING A BINARY TREE IN MEMORY:
+--->Like any other DS we hv 2 ways to rep a binary tree in memory:
+    1)Array rep:
+    a)In this approach we take an array of size 1 more than no. of nodes in the tree.
+    b)We fill the root node at index 1 (leaving 0th index blank & then we proceed from left
+      to right placing every element at subsequent index).
+    c)This means that root will be at index 1, it's left child ,it's right child at index 3 and so on.
+    d)Leave 0th index black so that we can apply a formula to obtain parent or left or right child of a node
+      given it's index.
+       formulas:
+       parent:index/2
+       left child:2*index
+       right child:2*index+1
+    #Benefits:
+    1)Easy to implement compared to linked rep.
+    2)Consumes less memory compared to linked rep.
+    3)We cam easily access parent ,left or right child using above formulas.
+    #Drawbacks:
+    1)If the tree is not a complete binary tree then just for validity of the formula
+      we hv to use empty cells in the array as shown below which is wastage of space.
+    2)Since we are using array to rep tree it won't be growable meaning we can't alter the
+      size at runtime so conclusion is that we should use array rep only when tree is a perfect
+      or complete binary tree for all other rep of types of binary tree we should prefer the
+      linked rep.
+
+    2)Linked rep:
+    a)In this approach we create a linked list to rep the binary tree & each node in the list
+      rep a value.
+    b)Every node has 3 members which are left, data & right
+    c)Left are references which store the address of left and right child or null if no child & data stores value.
+    #Benefits
+    1)Since we are using the linked list so the tree can dynamically grow and shrink.
+    2)It is suitable for every type of binary tree.
+    3)No wastage of space occurs.
+    #Drawbacks:
+    1)Since we are using a linked list the implementaion is bit tough
+    2)Per element our code will consume 2x byte extra where x is the size of reference.
+    3)Accessing child from parent is possible but there is no formula to access parent from child.
+#BINARY SEARCH TREE:
+
+#TREE TRAVERSAL TECHNIQUES:
+-->The word traversal means printing each node of the tree once and although there can be multiple
+    ways to traverse the binary tree but three traversal are :
+    1)Preorder Traversal:
+
+
+-->The names of these traversals are given based upon the position of root node in the output.
+    This means that in preorder traversal the output order is root left right
+                    in inorder traversal the output order is left root right
+                    in postorder traversal the output order is left right root
+
+    Algorithm for preorder traversal:
+    1)Check whether the tree is empty or not.
+    2)if it is empty then print empty tree and return.
+    3)if it is not empty then do the following
+        a)set the pointer to the root node
+        b)print it's data
+        c)check whether the current node has not empty right child
+        d)if it has a right child then push it in the stack
+        e)move towards left
+    4)Repeat the above steps until the pointer becomes null
+    5)check whether the stack has become empty or not
+    6)if it is empty then return
+    7)else pop the top node from the stack and goto step3.
+
+    Algorithm for inorder traversal:
+    1)Check whether the tree is empty or not
+    2)if it is empty then print "Empty tree " and return
+    3)if it is not empty them do the following:
+    4)Start from the root node , move towards left & push each node in the stack.
+    5)Stop when the pointer becomes null.
+    6)Check whether the stack is empty or not
+    7)if it is empty then return
+    8)else :a)pop the node
+            b)print it
+            c)check if it has right child
+            d)if it has a right child then move to the right child and go to step 4
+            e)else goto step 6.
+
+    Algorithm for postorder traversal:
+    1)Check whether the tree is empty or not.
+    2)if it is empty then print empty tree and return.
+    3)else set the pointer to the root node.
+    4)push the current node to the stack
+    5)also push the right child in the stack if it is present by making it negative
+    6)move towards left
+    7)Repeat the steps 4 to 6 until pointer becomes null
+    8)Check if the Stack is empty or not
+    9)if it is empty then return
+    10)if the stack is not empty then
+        a)pop the top node from the stack
+        b)Check whether it is + or -
+        c)if + then print it and goto step 8
+        d)if - then make it positive and goto step 4
+
+    To delete a node in bst there can be three cases:
+    1)Node to be deleted is leaf node:
+    -in this case we simply set the left or right pointer of the parent node to null with which
+     the current node that is the node to be deleted is connected. for eg in the below dig if the node
+     to be deleted is 12 then we will set the left pointer of 15 to null.
+
+    2)Node to be deleted has only 1 child
+    - In this case we set the left or right pointer of parent node to which this node is connected
+      to it's child that is in simple words we make the grand parent node to point to it's grand child and parent
+      node will get deleted. for eg in below dig to delete 12 we will simply set the left pointer to 15 to point to 14
+
+    3)Node to deleted has two children:
+    -In this case we take 3 actions :
+     a)we find inorder successor of the node to be deleted.
+     b)we copy the data part of the inorder successor to the data part of the node to be deleted
+     c)we delete the inorder successor and it's deletion definitely falls in either of the two cases:
+      i)either it will have no child
+      ii)Or it will have one right child

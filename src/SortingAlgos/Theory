@@ -1,0 +1,46 @@
+C
+1)The best case for linear search will be when the element we are searching is always at index 0. In this case only one
+comparison will be done irrespective of the size of the array so C(n)=O(1).
+2)The worst case will be when the element we are searching is at last position or at all not present in the array. In this case
+loop will iterate n times so C(n)=O(n).
+3)Average case will be when the element we are searching is found at any location from 1 to n. So:
+1/n*(n(n+1)/2)
+=(n+1)/2
+
+to realise that it is also in it's in it's correct position like this number of comparison will be C(n)=O(n^2)
+The best and average case of quick sort will have the complexity of nlog(n)
+It will be when the pivot is always placed at the middle of the array and breaks the array in exactly two halves.
+So when the first pivot element will be set at correct position the array will break into two parts, when the 2nd
+pivot element will be set at the correct position then array will break into 4 parts, when the 3rd pivot element will be set at
+correct position then array will break into 8 parts like this the last term will be equal to one
+The above is the complexity of quick sort function which uses recursion and breaks the array in two parts on every step
+Now we calculate the complexity of partition function which comes out to be o(n) this is because if pivot is exactly at the mid
+then both inner loops will run around n/2 times and n/2 +n/2 is o(n)
+Finally since we are calling the function partition from the function quick sort on every step so we will multiply
+both there complexities and this will come out to be c(n)=O(nlogn)
+
+#Time complexity of merge sort
+The complexity of merge sort is nlogn and this can be derived as follows:
+1)The complexity of the function split is log2n coz it divides the entire array into two parts on every step
+2)The complexity of the function merge will be o(n) coz it compares two arrays of size n1 and n2 where n1+n2 is <=n
+3)Now since the function merge is called from the function split on every step so the overall complexity will be of the order of nlogn.
+
+
+
+#Time Complexity of heap sort
+It comes to be of the order of nlogn. This can be calculated as follows:
+1)The function insHeap has the complexity of logn because the function insHeap adds an element in the heap and finds it's correct position
+by just comparing it with it's predecessors. Now since heap is a complete binary tree these comparisons will never be more than height of the tree
+which is logn moreover since the function insHeap is called n times from main method so it's total complexity will be nlogn.
+2)The function delHeap deletes the top element , places the  last element at the top and again heapifies the array. In this case also number of
+comparisons will never be more than logn and since delHeap is called n times from the main method so it's overall complexity becomes nlogn.
+3)Now adding both the complexities we get nlogn finally
+
+               best         worst       avg   adaptive    space
+
+1)Bubble       o(n)          o(n^2)
+2)Selection    o(n^2)        o(n^2)
+3)Insertion    o(n)          o(n^2)
+4)Quick        o(nlogn)      o(n^2)
+5)Merge        o(nlogn)      o(nlogn)
+6)Heap         o(nlogn)      o(nlogn)

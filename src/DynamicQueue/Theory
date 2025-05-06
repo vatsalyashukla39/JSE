@@ -1,0 +1,31 @@
+Q)What is a Priority Queue?
+A Priority queue is a special data structure which manages a collection in such a way that they are processed not in the order of their arrival rather on the basis of priority
+We know that a normal queue is FIFO based that is the element are processed on the basis of their incoming order.But sometimes
+it is needed that these elements should be processed on  some other value which is called priority queue
+In real world a good example is the way a hospital handles the patients. Patients who are critical are attended first while others can wait.
+
+Q)How java supports priority queue?
+1)In java priority queue is a class which is available in the package java.util and inherits from queue interface.
+collections----(extends)----queue-----(implements)----priorityQueue
+2)This class was added from jdk 5 onwards.
+3)The elements added in a priority queue are processed or ordered according to natural ordering provided at the time queue construction and internally java maintains this priority queue as a min heap
+4)This means that the head of the queue will be element with smallest value.
+5)Priority queue does not permit null values
+
+#Methods of Priority queue:
+1)Priority queue has implemented all the methods from collection and queue interfaces
+2)Some of it's most common methods are:
+a)add()/offer():
+1)Both the methods are used to insert an element in PriorityQueue.
+2)Insertion is not ordered.
+3)The elements are stored in min-heap with the least value at the root.
+4)Return true on successful insertion of element.
+b)remove()/poll():
+1)Both the methods are used to delete an from priority queue.
+2)Both the remove and return the head/front element.In pq it is the minimum element .
+3)Both the methods re-heap the queue after deletion.
+4)If the queue is empty then remove() throws NoSuchElementException while poll() returns null.
+
+c)element()/peek():
+1)Both the methods are used to get the top element from priority queue.
+2)If the queue is empty then element() throws NoSuchElementException while peek returns null.

@@ -1,0 +1,30 @@
+#Height Balanced Tree(AVL Tree):
+->In a BST we can observe that if the data we get is sorted then the tree will become skewed in one
+direction and we will lose the benefits of BST that is the search time needed will be almost same as an array.
+
+->In the skewed tree suppose we are searching for the last element then the time required will be almost same as array.
+
+->To overcome this problem data structure suggest that we should rotate a tree in the opposite direction as soon as it becomes heavy in one direction and such trees which rotate themselves are called as self balancing tree and one of them is AVL Tree.
+AVL tree is also known as height balanced tree.We create an avl tree just like we create a normal BST but while creating the tree we check the balance factor of each node and if we find a node whose balance factor is beyond the range of (-1,0,+1) then we say the node is critical node and the tree is unbalanced. Then before adding the next node we first balance the tree
+
+
+Q)What is balance factor?
+The word balance factor means the difference the heights of left and right subtree of that node
+
+Q)How do we balance the tree?
+To balance the tree we perform rotations and there are two rotations :
+a)Single Rotation
+1)LL Rotation
+2)RR Rotation
+b)Double Rotation
+1)LR Rotation
+2)RL Rotation
+
+Assignment:
+1)Draw AVL tree for the following values:
+a)10,8,15,6,9,7
+b)10,5,9,4,2,16,20,13
+c)2,1,4,3,5,6
+d)44,17,78,32,50,88,62,48,54
+e)7,5,9,4,6,8,12,11,13,10
+f)7,5,9,4,6,8,11,10,12,13

@@ -1,0 +1,123 @@
+GRAPH:
+A graph is a non-linear data structure just like a tree but it is used to represent relationship between nodes as per the following rules:
+1)It is a set of nodes called vertices(represented as v) and set of edges connecting those vertices(represented as e)
+2)Thus we can say that a graph can represented as G=(v,e)
+3)Every edge which belongs to e connects a pair of vertices which belong to v.
+  for example: we can have a route form delhi to mumbai and in this case delhi and mumbai are vertices and the root connecting them is an edge
+
+Q)How a graph differs from a tree?
+A)Although both are non-linear data structures but they hv few differences
+1)A graph can have a closed path which is due to interconnection between vertices but a tree can never have closed path
+2)A single child in a graph can be connected to multiple parents while in a tree a single node can only be connected to a single parent node
+3)In a tree we always have a special node designated as root node while in a graph there is no single node which can be called a root node.
+
+
+#Terminologies of graph:
+1)Adjacent Vertices:
+If a vertex can be visited directly from other vertex then we say it is adjacent to that vertex in the above diagram or graph v1 is adjacent to v2 but v2 is not adjacent to v1
+
+2)Directed/Undirected Edge:
+If in a graph an edge has a particular direction then we call it directed edge and if there is no direction on the edge then we call it undirected edge
+
+3)Directed/Undirected Graph:
+If in a graph every edge has a particular direction then it is called directed graph and if all the edges are undirected graph
+
+4)Mixed Graph:
+If in graph some edges are directed while others are undirected then we say graph is a mixed graph.
+
+5)Initial/Terminal Vertex:
+The vertex from which an edge initiates is called as initial vertex and the vertex on which the edge terminates is called as terminal vertex.
+for example in our graph for the edge e1 v2 is initial vertex and v1 is terminal vertex.
+
+6)Sling/Self Loop:
+If an edge connects a vertex to itself we say it is sling or self loop.
+
+7)Parallel Edges:
+If in a graph we have more than one edge connecting same pair of vertices then we say it is parallel edge and the graph becomes multi-graph
+for example if we create another edges e6 connecting v2 to v3 then e3 and e6 will be parallel edges and the graph will be called as multi-graph
+
+8)Weighted Graph:
+If in a graph every edge is assigned a positive value then we say the graph is a weighted graph.
+
+9)Tree Graph:
+If in a graph we do not have any close path then the graph becomes tree graph.
+
+10)Complete Graph:
+If in a graph every vertex is adjacent to every other vertex that is every vertex is directly reachable from every other vertex then we say the graph is a complete graph
+
+11)In-degree:
+Number of edges terminating on a vertex are called as it's in-degree.
+for example in the graph shown below the vertex v2 has indegree 0 while the vertex has indegree 2.
+
+12)OutDegree:
+Number of edges originating from a vertex are called as it's outdegree.
+In the diagram shown below v1 has outdegree and v2 has outdegree of 2
+
+13)Source:
+If in a graph we have vertex with zero indegree and positive outdegree then we call it a source vertex.
+In the above graph v2 is source vertex because it has zero indegree and 2 outdegree
+
+14)Sink:
+If in a graph we have a vertex with zero outdegree and positive indegree then we call it a sink vertex.
+
+
+#
+1)Just like any other data structure graph can be represented in two ways :
+a)Array representation
+b)Linked representation
+a)Array representation is also called as adjacency matrix representation and it is done using a rectangular 2d array
+
+In adjacency list representation we use arrayList moreover adjacency matrix representation is beneficial for static graph while adjacency list representation is beneficial for dynamic graphs
+
+#Adjacency matrix representation:
+
+#Algorithm for Graph Traversal(BFS):
+Steps:
+1)Create a boolean array of the size equal to number of vertices in the graph and set each element to false.
+2)Now find a source vertex in the graph and enqueue it in a queue.
+3)Repeat the following steps until the queue becomes empty :
+  a)Remove the top element from the queue.
+  b)Check whether it is visited or not
+  c)If not visited then:
+    i)Print it
+    ii)Set it's visited to true
+    iii)Enqueue all it's adjacent vertices in the queue.
+  d)Go to 3a).
+
+#Algorithm for Graph Traversal(BFS):
+1)The BFS is exactly same as DFS in it's implementation with just one change which is that instead of queue will we use stack
+
+Shortest Path Algorithm:
+1)The word shortest path in graph means finding the path of minimum length vertices of a graph and the two most popular algorithms are:
+
+a)Warshall's Algorithm:
+1)This algorithm finds the shortest path from every vertex to every other vertex of the graph and it is aka all pair shortest path
+2)The end result of this algorithm is a matrix containing shortest path values b/w vertices.
+3)On the other hand dijkstra's algorithm calculates the shortest path between two arbitrary vertices
+
+b)Dijkstra's Algorithm:
+Dijkstra's algorithm of shortest path calculation between two vertices:
+1)Mark all the vertices by setting their label to infinity.
+2)Set the label of source vertex to 0.
+3)For the current vertex, analyze all it's unvisited neighbours and calculate their label by adding current label of the current vertex
+to the weight of the connecting edge.
+4)Compare the recently measured label with the current label assigned to the neighbouring vertex and if it's is lesser then make it the new label of the neiighbouring
+vertex.
+5)Consider all the unvisited neighbours of the current node and mark the current as visited .
+6)If the destination node has been marked then stop.
+7)Otherwise choose the unvisited node with minimum label and make it current vertex and goto step 3.
+
+#Spanning Tree:
+Spanning tree of a graph is a sub-graph with following features:
+1)Includes all the vertices of the graph.
+2)It is a tree without any cycle.
+3)Has exactly v-1 number of edges where v is the number of edges.
+4)If any extra edge added to the spanning tree it will create a cycle.
+
+
+#Minimum cost spanning tree:
+1)If in a graph every edge is assigned a weight then minimum cost spanning tree is a special spanning tree which is created n such a way that total
+cost of the edges in the spanning tree comes minimum.
+
+->To create minimum cost spanning tree we use prim's algorithm
+.
